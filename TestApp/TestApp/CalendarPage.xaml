@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Create Calendar event"
+             x:Class="TestApp.CalendarPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,20">
+            <Editor Placeholder="Title" Text="{Binding Title, Mode=TwoWay}" />
+            <Editor Placeholder="Description" Text="{Binding Description, Mode=TwoWay}"/>
+            <Label Text="Start" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="dateStart" 
+                            Grid.Column="0"
+                            Date="{Binding StartDate, Mode=TwoWay}"/>
+                <TimePicker x:Name="timeStart" 
+                            Grid.Column="1"
+                            Time="{Binding StartTime, Mode=TwoWay}" />
+            </Grid>
+            <Label Text="End" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="dateEnd" 
+                            Grid.Column="0"
+                            Date="{Binding EndDate, Mode=TwoWay}"/>
+                <TimePicker x:Name="timeEnd" 
+                            Grid.Column="1"
+                            Time="{Binding EndTime, Mode=TwoWay}" />
+            </Grid>
+            <Button Text="Create" Clicked="ButtonCreate_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
